@@ -31,6 +31,7 @@ function getRandomUser() {
   return dispatch => {
     axios.get("https://randomuser.me/api/").then(resp => {
       const data = resp.data.results[0]
+      console.log(data)
 
       dispatch({
         type: GET_RANDOM_USER,
@@ -41,11 +42,16 @@ function getRandomUser() {
 }
 
 function userGoing(user) {
-
+  return dispatch => {
+    axios.patch('/')
+    getRandomUser()
+  }
 }
 
 function userNotGoing(user) {
-
+  return dispatch => {
+    getRandomUser()
+  }
 }
 
 export function useRandomUser() {
