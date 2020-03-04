@@ -1,24 +1,49 @@
 const express = require("express")
 const router = express.Router()
+const axios = require("axios")
 
-const users = []
-let userId = 0
+let randomUser = []
+let usersGoing = []
+let usersNotGoing = []
+let userid = 1
 
-router.post('/user', (req, res, next) => {
-  userId++
-  next()
-})
+router.get("/randomUser", (req, res, next) => {
+  axios.get('https://randomuser.me/api/?nat=us&randomapi&lego').then(resp => {
+    const obj = resp.data.results[0]
 
-router.post('/user', (req, res, next) => {
-  users.push({ ...req.body, userId: userId })
-  res.json({
-    message: 'User Added'
+    const user = {
+      name: `${obj.name.first} ${obj.name.last}`,
+      phone: obj.phone,
+      email: obj.email,
+      img: obj.picture.thumbnail,
+      id: userid++
+    }
+
+    randomUser.push({ ...user })
+    res.json({
+      ...user
+    })
   })
-  console.log(users)
 })
 
-router.get('/user/:userId', (req, res, next) => {
-  const user = users.find(user => user.userId === req.params.userId)
+router.post('/going', (req, res, next) => {
+  usersGoing.push(req.body.user)
+  res.json({
+    ...usersGoing
+  })
+})
+
+
+
+
+router.get('/randomuser/:id', (req, res, next) => {
+  const user = randomUser.find(user => user.id == req.params.id)
+  res.json(user)
+})
+
+router.get('/going', (req, res, next) => {
+  const user = usersGoing
+  console.log(user)
   res.json(user)
 })
 
