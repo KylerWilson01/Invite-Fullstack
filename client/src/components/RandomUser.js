@@ -7,13 +7,18 @@ export default props => {
 
   return (
     <div className="randomUser">
-      <img src={randomUser.img} alt="" />
-      <p>Name: {randomUser.name}</p>
-      <p>Phone: {randomUser.phone}</p>
-      <p>Email: {randomUser.email}</p>
-      <button onClick={e => going(randomUser)}>Going</button>
-      <button onClick={e => notgoing(randomUser)}>Notgoing</button>
-      <Link to='/going'><button>Going Page</button></Link>
+      <div className="links">
+        <Link to='/going'><p className="going">GOING</p></Link>
+        <Link to='/notgoing'><p className="notGoing">NOT GOING</p></Link>
+      </div>
+      <img className="randomImg" src={randomUser.img} alt="" />
+      <p className="randomName">Name: {randomUser.name}</p>
+      <p className="randomPhone">Phone: {randomUser.phone}</p>
+      <p className="randomEmail">Email: {randomUser.email}</p>
+      <div className="sectionButtons">
+        <button className="randomGoing" onClick={e => going(randomUser)}>Going</button>
+        <button className="randomNotGoing" onClick={e => notgoing(randomUser)}>Notgoing</button>
+      </div>
     </div>
 
   )

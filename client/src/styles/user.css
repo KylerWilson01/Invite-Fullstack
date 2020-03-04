@@ -1,0 +1,59 @@
+.randomUser {
+  width: 500px;
+  margin: 75px auto;
+  display: grid;
+  justify-content: center;
+  grid-template-areas:
+    "links"
+    "img"
+    "name"
+    "phone"
+    "email"
+    "section";
+}
+
+.links {
+  grid-area: links;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+}
+
+.links a {
+  text-decoration: none;
+  color: black;
+}
+
+.randomImg {
+  grid-area: img;
+  margin: auto;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.randomName {
+  grid-area: name;
+  width: 300px;
+}
+
+.randomPhone {
+  grid-area: phone;
+  width: 300px;
+}
+
+.randomEmail {
+  grid-area: email;
+  width: 300px;
+}
+
+.sectionButtons {
+  grid-area: section;
+  display: flex;
+}
+
+.sectionButtons button {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  outline: none;
+}

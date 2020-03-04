@@ -1,0 +1,30 @@
+.userContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.userContainer a {
+  text-decoration: none;
+  color: black;
+}
+
+.userContainer p {
+  margin: 20px 50px;
+}
+
+.usersGoing {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.sectionImg {
+  border-radius: 50%;
+  max-width: 75px;
+  margin: auto;
+}

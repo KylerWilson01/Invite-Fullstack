@@ -33,8 +33,12 @@ router.post('/going', (req, res, next) => {
   })
 })
 
-
-
+router.post('/notgoing', (req, res, next) => {
+  usersNotGoing.push(req.body.user)
+  res.json({
+    ...usersNotGoing
+  })
+})
 
 router.get('/randomuser/:id', (req, res, next) => {
   const user = randomUser.find(user => user.id == req.params.id)
@@ -43,7 +47,11 @@ router.get('/randomuser/:id', (req, res, next) => {
 
 router.get('/going', (req, res, next) => {
   const user = usersGoing
-  console.log(user)
+  res.json(user)
+})
+
+router.get('/notgoing', (req, res, next) => {
+  const user = usersNotGoing
   res.json(user)
 })
 
